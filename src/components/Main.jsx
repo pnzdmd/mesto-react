@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Api } from '../utils/Api';
-import { api } from '../utils/Api';
+import api from '../utils/Api';
 import Card from './Card';
 
 const Main = ({
