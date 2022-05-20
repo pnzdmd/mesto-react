@@ -2,7 +2,7 @@ import React from 'react';
 import remove_img from '../images/remove_img.png';
 
 const Card = ({ card, onCardClick, onAreYouSure }) => {
-  const { link, name } = card;
+  const { link, name, likes } = card;
 
   function handleClick() {
     onCardClick(card);
@@ -26,7 +26,7 @@ const Card = ({ card, onCardClick, onAreYouSure }) => {
         <h2 className='element__title'>{name}</h2>
         <div className='element__like'>
           <button className='element__like-btn' type='button'></button>
-          <p className='element__like-count'>0</p>
+          <p className='element__like-count'>{likes.length}</p>
         </div>
       </figcaption>
     </figure>

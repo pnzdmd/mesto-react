@@ -19,7 +19,6 @@ const PopupWithForm = ({
         <form
           className={`popup__form popup__form_${popupNameForm}`}
           name={name}
-          noValidate
         >
           {children}
           <button

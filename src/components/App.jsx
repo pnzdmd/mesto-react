@@ -115,7 +115,7 @@ const App = () => {
               className='popup__input popup__input_type_name'
               id='firstname'
               name='firstname'
-              placeholder='Имя'
+              placeholder='Название'
               minLength='2'
               maxLength='40'
               required
@@ -128,7 +128,7 @@ const App = () => {
               className='popup__input popup__input_type_about'
               id='description'
               name='description'
-              placeholder='Профессия'
+              placeholder='Ссылка на картинку'
               minLength='2'
               maxLength='200'
               required
