@@ -41,7 +41,6 @@ const App = () => {
   }, []);
 
   function handleCardDeleteClick(card) {
-    console.log(1);
     setIsConfirmPopupOpen(!isConfirmPopupOpen);
     setRemovedCardId(card);
   }
