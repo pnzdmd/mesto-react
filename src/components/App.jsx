@@ -128,6 +128,11 @@ const App = () => {
       });
   }
 
+  function handleEscClose(evt) {
+    if (evt.key === 'Escape') {
+      closeAllPopups();
+    }
+  }
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -135,6 +140,7 @@ const App = () => {
     setIsConfirmPopupOpen(false);
     setSelectedCard(defaultSelectedCard);
   }
+  document.addEventListener('keydown', handleEscClose);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
