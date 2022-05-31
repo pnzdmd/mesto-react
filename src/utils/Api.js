@@ -11,41 +11,45 @@ class Api {
       return Promise.reject(res.status);
     }
   }
-
+  // получить информацию о пользователе с сервера
   getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
+  // получить карточки с сервера
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  editProfile(name, about) {
+  // обновить данные пользователя
+  editProfile(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name,
-        about,
+        name: data.name,
+        about: data.description,
       }),
     }).then(this._checkResponse);
   }
 
-  addCard(name, link) {
+  // добавить карточку
+  addCard(card) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name,
-        link,
+        name: card.name,
+        link: card.link,
       }),
     }).then(this._checkResponse);
   }
 
+  // удалить карточку
   removeCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
@@ -53,6 +57,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
+  // удалить лайк
   removeLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
@@ -60,6 +65,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
+  // добавить лайк
   addLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
@@ -67,12 +73,13 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  updateAvatar(avatar) {
+  // изменение аватара
+  updateAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar,
+        avatar: data.avatar,
       }),
     }).then(this._checkResponse);
   }
